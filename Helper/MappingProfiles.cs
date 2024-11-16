@@ -3,6 +3,7 @@ using PokemonReview.Dto;
 using PokemonReview.Models;
 using PokemonReview.Dto.Country;
 using PokemonReview.Dto.Category;
+using PokemonReview.Dto.Reviewer;
 
 namespace PokemonReview.Helper
 {
@@ -12,8 +13,10 @@ namespace PokemonReview.Helper
         {
             CreateMap<Pokemon, PokemonDto>();
             CreateMap<Category, DetailsCategoryDto>();
-            CreateMap<CreateCategoryDto,Category >();
+            CreateMap<CreateCategoryDto,Category>();
             CreateMap<CreateCountryDto,Country>();
+            CreateMap<Country,DetailsCountryDto>();
+            CreateMap<CreateReviewerDto,Reviewer>();
         }
     }
 }

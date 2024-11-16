@@ -19,8 +19,6 @@ namespace PokemonReview.Controllers
             _countryRepository = countryRepository;
             _mapper = mapper;
         }
-
-
         [HttpPost]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
@@ -33,7 +31,6 @@ namespace PokemonReview.Controllers
             var country = _countryRepository.CountryExists(CountryRequest.Name);
             if (country)
             {
-
                 ModelState.AddModelError("unique", "Country already exixt");
                 return StatusCode(422, ModelState);
             }
@@ -43,5 +40,27 @@ namespace PokemonReview.Controllers
 
         }
 
+        [HttpGet]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        public IActionResult GetCountries()
+        {
+            var countries = _mapper.Map<List<DetailsCountryDto>>(_countryRepository.GetCountries());
+            return Ok(countries);
+        }
+
+        [HttpGet("{id}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        public IActionResult GetCountry(int id)
+        {
+            var country = _mapper.Map<DetailsCountryDto>(_countryRepository.GetCountry(id));
+            if (country == null)
+            {
+                ModelState.AddModelError("response", "Country doesn't exist");
+                return StatusCode(404, ModelState);
+            }
+            return Ok(country);
+        }
     }
 }

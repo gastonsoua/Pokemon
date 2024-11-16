@@ -5,15 +5,15 @@ using PokemonReview.Models;
 namespace PokemonReview.Repository
 {
     public class CountryRepository : ICountryRepository
-    {      
+    {
         private readonly DataContext _context;
-        public CountryRepository(DataContext context) 
+        public CountryRepository(DataContext context)
         {
-        _context = context;
+            _context = context;
         }
         public bool CountryExists(string name)
         {
-           var coutry= _context.Countries.Where(c=>c.Name.Trim().ToLower() == name.Trim().ToLower()).FirstOrDefault();
+            var coutry = _context.Countries.Where(c => c.Name.Trim().ToLower() == name.Trim().ToLower()).FirstOrDefault();
             return coutry != null;
         }
 
@@ -24,6 +24,16 @@ namespace PokemonReview.Repository
             _context.Add(coutnry);
 
             return Save();
+        }
+
+        public ICollection<Country> GetCountries()
+        {
+            return _context.Countries.OrderBy(c => c.Id).ToList();
+        }
+
+        public Country GetCountry(int id)
+        {
+            return _context.Countries.FirstOrDefault(c => c.Id == id);
         }
 
         public bool Save()
