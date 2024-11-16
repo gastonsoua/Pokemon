@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace PokemonReview.Dto
+namespace PokemonReview.Dto.Category
 {
-    public class CategoryDto
+    public class Details
     {
         public int Id { get; set; }
         public required string Name { get; set; }

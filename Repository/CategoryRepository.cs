@@ -20,6 +20,8 @@ namespace PokemonReview.Repository
 
         public bool CreateCategory(Category category)
         {
+             category.CreatedAt = DateTime.Now;
+            category.UpdatedAt = DateTime.Now;
             _context.Add(category);
            
             return Save();
@@ -32,7 +34,7 @@ namespace PokemonReview.Repository
 
         public Category GetCategory(int id)
         {
-            throw new NotImplementedException();
+            return _context.Categories.Where(c => c.Id == id).FirstOrDefault();
         }
 
         public bool Save()

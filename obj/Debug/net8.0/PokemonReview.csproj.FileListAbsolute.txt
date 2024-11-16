@@ -141,3 +141,4 @@ C:\Users\ghass\source\repos\PokemonReview\PokemonReview\bin\Debug\net8.0\runtime
 C:\Users\ghass\source\repos\PokemonReview\PokemonReview\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\ghass\source\repos\PokemonReview\PokemonReview\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\ghass\source\repos\PokemonReview\PokemonReview\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\ghass\source\repos\PokemonReview\PokemonReview\obj\Debug\net8.0\PokemonReview.sourcelink.json
