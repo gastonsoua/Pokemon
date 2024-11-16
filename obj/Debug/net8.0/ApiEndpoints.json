@@ -1,17 +1,23 @@
 [
   {
     "ContainingType": "PokemonReview.Controllers.CategoryController",
-    "Method": "GetCategories",
+    "Method": "CreateCategory",
     "RelativePath": "api/categories",
-    "HttpMethod": "GET",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "CategoryRequest",
+        "Type": "PokemonReview.Dto.Category.CreateCategoryDto",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "System.Void",
         "MediaTypes": [],
-        "StatusCode": 200
+        "StatusCode": 204
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
@@ -26,23 +32,17 @@
   },
   {
     "ContainingType": "PokemonReview.Controllers.CategoryController",
-    "Method": "CreateCategory",
+    "Method": "GetCategories",
     "RelativePath": "api/categories",
-    "HttpMethod": "POST",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "CategoryRequest",
-        "Type": "PokemonReview.Dto.Category.Create",
-        "IsRequired": true
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": [
       {
         "Type": "System.Void",
         "MediaTypes": [],
-        "StatusCode": 204
+        "StatusCode": 200
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
@@ -74,6 +74,37 @@
         "Type": "System.Void",
         "MediaTypes": [],
         "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      }
+    ]
+  },
+  {
+    "ContainingType": "PokemonReview.Controllers.CountryController",
+    "Method": "CreateCountry",
+    "RelativePath": "api/countries",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CountryRequest",
+        "Type": "PokemonReview.Dto.Country.CreateCountryDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 204
       },
       {
         "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",

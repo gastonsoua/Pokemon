@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
 using PokemonReview.Dto;
-using PokemonReview.Dto.Category;
 using PokemonReview.Models;
+using PokemonReview.Dto.Country;
+using PokemonReview.Dto.Category;
 
 namespace PokemonReview.Helper
 {
@@ -10,8 +11,9 @@ namespace PokemonReview.Helper
         public MappingProfiles()
         {
             CreateMap<Pokemon, PokemonDto>();
-            CreateMap<Category, Details>();
-            CreateMap<Category, Create>();
+            CreateMap<Category, DetailsCategoryDto>();
+            CreateMap<CreateCategoryDto,Category >();
+            CreateMap<CreateCountryDto,Country>();
         }
     }
 }

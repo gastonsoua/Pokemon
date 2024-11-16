@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
 using AutoMapper.Internal.Mappers;
 using Microsoft.AspNetCore.Mvc;
-using PokemonReview.Dto.Category;
 using PokemonReview.Interfaces;
 using PokemonReview.Models;
 using PokemonReview.Repository;
 using System.Collections;
+using PokemonReview.Dto.Category;
 
 namespace PokemonReview.Controllers
 {
@@ -26,7 +26,7 @@ namespace PokemonReview.Controllers
         [HttpPost]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
-        public IActionResult CreateCategory([FromBody] Create CategoryRequest)
+        public IActionResult CreateCategory([FromBody] CreateCategoryDto CategoryRequest)
         {
             if (CategoryRequest == null)
             {
@@ -47,7 +47,7 @@ namespace PokemonReview.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         public IActionResult GetCategories() {
-            var categories = _mapper.Map<List<Details>>(_categoryRepository.GetCategories());
+            var categories = _mapper.Map<List<DetailsCategoryDto>>(_categoryRepository.GetCategories());
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -60,7 +60,7 @@ namespace PokemonReview.Controllers
         [ProducesResponseType(400)]
         public IActionResult GetCategory(int id)
         {
-            var category = _mapper.Map<Details>(_categoryRepository.GetCategory(id));
+            var category = _mapper.Map<DetailsCategoryDto>(_categoryRepository.GetCategory(id));
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);

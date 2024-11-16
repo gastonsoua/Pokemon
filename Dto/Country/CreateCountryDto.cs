@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace PokemonReview.Dto.Category
+namespace PokemonReview.Dto.Country
 {
-    public class Create
+    public class CreateCountryDto
     {
         public required string Name { get; set; }
     }
